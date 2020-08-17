@@ -1,14 +1,24 @@
 <template>
-  <div class="container">
+  <div id="app2" class="container">
     <div>
       <h1>My Profil</h1>
+      <PrvaStranica></PrvaStranica>
+      <DrugaStranica></DrugaStranica>
     </div>
-    <div class="products"></div>
   </div>
 </template>
 
 <script>
-export default {};
+import PrvaStranica from "./components/PrvaStranica";
+import DrugaStranica from "./components/DrugaStranica";
+
+export default {
+  name: "app2",
+  components: {
+    PrvaStranica: PrvaStranica,
+    DrugaStranica: DrugaStranica,
+  },
+};
 </script>
 
 <style>
