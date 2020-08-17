@@ -1,26 +1,28 @@
 <template>
   <div>
     <nav>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Products</li>
-      <li>Services</li>
-      <li>Blog</li>
-      <li>Contact</li>
-    </ul>
-     <div class="icons">
-					<img class="icon-1" src="img/icon-1.png">
-					<img class="icon-2" src="img/icon-2.png">
-            </div>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Products</li>
+        <li>Services</li>
+        <li>Blog</li>
+        <li>Contact</li>
+      </ul>
+      <div class="icons">
+        <svg class="icon-1">
+          <use href="img/icon-1.svg" />
+        </svg>
+        <svg class="icon-2">
+          <use href="img/icon-2.svg" />
+        </svg>
+      </div>
     </nav>
   </div>
 </template>
 
 <script>
-export default {
-
-  }
+export default {};
 </script>
 <style>
 nav {
@@ -67,21 +69,17 @@ nav ul li:not(:last-child) {
   border-right: 1px solid black;
 }
 
-
 nav .icons {
   display: flex;
 }
 
-nav .icons .icon-1{
+nav .icons .icon-1 {
   height: 30px;
   margin: 0px 20px;
 }
 
-
-nav .icons .icon-2{
+nav .icons .icon-2 {
   height: 30px;
   margin: 0px 20px;
-  
 }
-
 </style>
