@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <SredinaStranice></SredinaStranice>
+    <PrvaStranica></PrvaStranica>
+    <DrugaStranica></DrugaStranica>
   </div>
 </template>
 
 <script>
 import Navigation from "./components/Navigation";
-import SredinaStranice from "./components/SredinaStranice";
+import PrvaStranica from "./components/PrvaStranica";
+import DrugaStranica from "./components/DrugaStranica";
 
 export default {
   name: "app",
   components: {
     Navigation: Navigation,
-    SredinaStranice: SredinaStranice,
+    PrvaStranica: PrvaStranica,
+    DrugaStranica: DrugaStranica,
   },
 };
 </script>
@@ -25,5 +28,17 @@ export default {
   box-sizing: border-box;
   font-family: Arial;
   font-style: normal;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+.container h1 {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 25px;
+  margin: 60px 0;
 }
 </style>
