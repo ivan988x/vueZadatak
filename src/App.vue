@@ -1,17 +1,28 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
+    <SredinaStranice>
+      <PrvaStranica></PrvaStranica>
+      <DrugaStranica></DrugaStranica>
+    </SredinaStranice>
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation'
+import Navigation from "./components/Navigation";
+import SredinaStranice from "./components/SredinaStranice";
+import PrvaStranica from "./components/PrvaStranica";
+import DrugaStranica from "./components/DrugaStranica";
+
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    'Navigation': Navigation
-  }
-}
+    Navigation: Navigation,
+    SredinaStranice: SredinaStranice,
+    PrvaStranica: PrvaStranica,
+    DrugaStranica: DrugaStranica,
+  },
+};
 </script>
 
 <style>

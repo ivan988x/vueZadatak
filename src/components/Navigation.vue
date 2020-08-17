@@ -10,12 +10,8 @@
         <li>Contact</li>
       </ul>
       <div class="icons">
-        <svg class="icon-1">
-          <use href="img/icon-1.svg" />
-        </svg>
-        <svg class="icon-2">
-          <use href="img/icon-2.svg" />
-        </svg>
+        <img class="icon-1" src="img/icon-1.png" />
+        <img class="icon-2" src="img/icon-2.png" />
       </div>
     </nav>
   </div>
