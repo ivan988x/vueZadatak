@@ -35,10 +35,4 @@ export default {
   margin: 0 auto;
   padding-bottom: 40px;
 }
-.container h1 {
-  font-weight: bold;
-  font-size: 45px;
-  line-height: 25px;
-  margin: 60px 0;
-}
 </style>
