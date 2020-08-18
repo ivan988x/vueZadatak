@@ -11,32 +11,32 @@
         <div class="left">
           <h3>PERSONAL</h3>
           <label for>First Name</label>
-          <input type="text" placeholder="John" />
+          <input required type="text" placeholder="John" v-model="firstName" />
           <label for>Last Name</label>
-          <input type="text" placeholder="Johnes" />
+          <input required type="text" placeholder="Johnes" v-model="lastName" />
           <label for>Email Address</label>
-          <input type="text" placeholder="john.johnes@gmail.com" />
+          <input required type="text" placeholder="john.johnes@gmail.com" v-model="email" />
           <label for>Phone</label>
-          <input type="text" placeholder="+385 91 111 111" />
+          <input required type="text" placeholder="+385 91 111 111" v-model="phone" />
 
           <h3>LOCATION</h3>
           <label for>Country</label>
-          <input type="text" placeholder="Enter Country" />
+          <input required type="text" placeholder="Enter Country" v-model="country" />
           <label for>City</label>
-          <input type="text" placeholder="Enter City" />
+          <input required type="text" placeholder="Enter City" v-model="city" />
         </div>
 
         <div class="right">
           <h3>EDUCATION</h3>
           <label class="education" for>Education</label>
           <label class="finished" for>Finished</label>
-          <input type="text" placeholder="Enter Country" />
-          <select name="year" id="year">
+          <input type="text" placeholder="Enter Country" v-model="education1" />
+          <select name="year" id="year" v-model="education1_year">
             <option value="2003">2003</option>
           </select>
 
-          <input type="text" placeholder="Enter City" />
-          <select name="year" id="year">
+          <input type="text" placeholder="Enter City" v-model="education2" />
+          <select name="year" id="year" v-model="education2_year">
             <option value="2003">2008</option>
           </select>
 
@@ -89,7 +89,16 @@ export default {
         .get("https://factory.hr/api/test.php", {
           params: {
             // Trebam još pokupiti vrijednosti iz inputa, kreirati objekt i ovdje ga poslati
-            ID: 12345,
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            country: this.country,
+            city: this.city,
+            education1: this.education1,
+            education1_year: this.education1_year,
+            education2: this.education2,
+            education2_year: this.education2_year,
           },
         })
         .then(function (response) {
@@ -100,6 +109,20 @@ export default {
           console.log(error);
         });
     },
+  },
+  data: function () {
+    return {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      country: "",
+      city: "",
+      education1: "",
+      education1_year: "",
+      education2: "",
+      education2_year: "",
+    };
   },
 };
 </script>
