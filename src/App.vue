@@ -1,22 +1,19 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <PrvaStranica></PrvaStranica>
-    <DrugaStranica></DrugaStranica>
+    <SredinaStranice></SredinaStranice>
   </div>
 </template>
 
 <script>
 import Navigation from "./components/Navigation";
-import PrvaStranica from "./components/PrvaStranica";
-import DrugaStranica from "./components/DrugaStranica";
+import SredinaStranice from "./components/SredinaStranice";
 
 export default {
   name: "app",
   components: {
     Navigation: Navigation,
-    PrvaStranica: PrvaStranica,
-    DrugaStranica: DrugaStranica,
+    SredinaStranice: SredinaStranice,
   },
 };
 </script>
@@ -33,6 +30,5 @@ export default {
 .container {
   width: 70%;
   margin: 0 auto;
-  padding-bottom: 40px;
 }
 </style>
