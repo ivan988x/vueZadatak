@@ -52,24 +52,26 @@
 
     <!-- Druga stranica -->
     <div class="container1">
-      <div class="data" v-for="data in params" :key="data.id">
+      <div class="data">
         <h1>My Profil</h1>
         <ul class="data">
-          <li class="profile-name">Profile {{get_data.first_name}}</li>
+          <li class="profile-name">Profile {{getData.first_name}}</li>
           <li class="email">
-            <img class="email-img" src="img/email.png" />Email {{get_data.email}}
+            <img class="email-img" src="img/email.png" />
+            Email {{getData.email}}
           </li>
           <li class="phone">
-            <img class="phone-img" src="img/phone.png" />Phone {{get_data.phone}}
+            <img class="phone-img" src="img/phone.png" />
+            Phone {{getData.phone}}
           </li>
           <li class="location">LOCATION</li>
-          <li class="country">Country: {{get_data.country}}</li>
-          <li class="city">City: {{get_data.city}}</li>
+          <li class="country">Country: {{getData.country}}</li>
+          <li class="city">City: {{getData.city}}</li>
           <li class="education">EDUCATION</li>
-          <li class="year1">2003 {{get_data.education1_year}}</li>
-          <li class="high-school">High School {{get_data.education1}}</li>
-          <li class="year2">2003 {{get_data.education2_year}}</li>
-          <li class="degree">Degree {{get_data.education2}}</li>
+          <li class="year1">2003 {{getData.education1_year}}</li>
+          <li class="high-school">High School {{getData.education1}}</li>
+          <li class="year2">2003 {{getData.education2_year}}</li>
+          <li class="degree">Degree {{getData.education2}}</li>
         </ul>
         <button class="edit-btn">
           <img class="pen-img" src="img/pen.png" />EDIT
@@ -81,34 +83,9 @@
 
 <script>
 export default {
-  methods: {
-    save: function () {
-      const axios = require("axios");
-      axios
-        .get("https://factory.hr/api/test.php", {
-          params: {
-            first_name: this.firstName,
-            last_name: this.lastName,
-            email: this.email,
-            phone: this.phone,
-            country: this.country,
-            city: this.city,
-            educations: this.educations,
-          },
-        })
-        .then(function(res){
-          this.params = res.data.get_data;
-          console.log('Data: ',res.data.get_data);
-        })
-          // Ovdje se dohvaćaju vraćeni podaci
-       
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-  },
   data: function () {
     return {
+      getData: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -128,6 +105,30 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    save: function () {
+      const axios = require("axios");
+      axios
+        .get("https://factory.hr/api/test.php", {
+          params: {
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            phone: this.phone,
+            country: this.country,
+            city: this.city,
+            educations: this.educations,
+          },
+        })
+        .then(function (res) {
+          this.getData = res.data.get_data;
+          console.log("Data: ", res.data.get_data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
@@ -281,7 +282,6 @@ select:hover {
   position: absolute;
   top: 140px;
   left: 260px;
-  
 }
 h1 {
   font-family: Arial;
