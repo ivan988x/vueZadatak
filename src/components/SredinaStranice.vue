@@ -52,24 +52,24 @@
 
     <!-- Druga stranica -->
     <div class="container1">
-      <div>
+      <div class="data" v-for="data in params" :key="data.id">
         <h1>My Profil</h1>
         <ul class="data">
-          <li class="profile-name">Profile Name</li>
+          <li class="profile-name">Profile {{get_data.first_name}}</li>
           <li class="email">
-            <img class="email-img" src="img/email.png" />Email
+            <img class="email-img" src="img/email.png" />Email {{get_data.email}}
           </li>
           <li class="phone">
-            <img class="phone-img" src="img/phone.png" />Phone
+            <img class="phone-img" src="img/phone.png" />Phone {{get_data.phone}}
           </li>
           <li class="location">LOCATION</li>
-          <li class="country">Country:</li>
-          <li class="city">City:</li>
+          <li class="country">Country: {{get_data.country}}</li>
+          <li class="city">City: {{get_data.city}}</li>
           <li class="education">EDUCATION</li>
-          <li class="year1">2003</li>
-          <li class="high-school">High School</li>
-          <li class="year2">2003</li>
-          <li class="degree">Degree</li>
+          <li class="year1">2003 {{get_data.education1_year}}</li>
+          <li class="high-school">High School {{get_data.education1}}</li>
+          <li class="year2">2003 {{get_data.education2_year}}</li>
+          <li class="degree">Degree {{get_data.education2}}</li>
         </ul>
         <button class="edit-btn">
           <img class="pen-img" src="img/pen.png" />EDIT
@@ -101,10 +101,12 @@ export default {
             education2_year: this.education2_year,
           },
         })
-        .then(function (response) {
-          console.log(response);
-          // Ovdje se dohvaćaju vraćeni podaci
+        .then(function(res){
+          this.params = res.data.get_data;
+          console.log('Data: ',res.data.get_data);
         })
+          // Ovdje se dohvaćaju vraćeni podaci
+       
         .catch(function (error) {
           console.log(error);
         });
@@ -276,7 +278,7 @@ select:hover {
   position: absolute;
   top: 140px;
   left: 260px;
-  display: none;
+  
 }
 h1 {
   font-family: Arial;
