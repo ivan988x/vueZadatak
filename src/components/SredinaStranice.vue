@@ -83,22 +83,17 @@
 export default {
   methods: {
     save: function () {
-      alert("message");
       const axios = require("axios");
       axios
         .get("https://factory.hr/api/test.php", {
           params: {
-            // Trebam još pokupiti vrijednosti iz inputa, kreirati objekt i ovdje ga poslati
             first_name: this.firstName,
             last_name: this.lastName,
             email: this.email,
             phone: this.phone,
             country: this.country,
             city: this.city,
-            education1: this.education1,
-            education1_year: this.education1_year,
-            education2: this.education2,
-            education2_year: this.education2_year,
+            educations: this.educations,
           },
         })
         .then(function (response) {
@@ -122,6 +117,14 @@ export default {
       education1_year: "",
       education2: "",
       education2_year: "",
+      educations: [
+        {
+          education1: "",
+          education1_year: "",
+          education2: "",
+          education2_year: "",
+        },
+      ],
     };
   },
 };
